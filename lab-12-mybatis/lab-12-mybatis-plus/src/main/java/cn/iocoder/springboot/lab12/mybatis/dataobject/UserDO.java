@@ -6,7 +6,11 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 
 /**
+ * 用户do
  * 用户 DO
+ *
+ * @author YS
+ * @date 2023/06/30
  */
 @TableName(value = "users")
 public class UserDO {
