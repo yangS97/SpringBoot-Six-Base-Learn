@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class UserDO {
 
+
     /**
      * 用户编号
      */
