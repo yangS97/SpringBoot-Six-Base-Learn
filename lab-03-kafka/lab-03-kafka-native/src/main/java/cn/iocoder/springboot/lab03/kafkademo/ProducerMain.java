@@ -35,11 +35,20 @@ public class ProducerMain {
         Producer<String, String> producer = createProducer();
 
         // 创建消息。传入的三个参数，分别是 Topic ，消息的 key ，消息的 message 。
-        ProducerRecord<String, String> message = new ProducerRecord<>("TestTopic", "key", "yudaoyuanma");
+//        ProducerRecord<String, String> message = new ProducerRecord<>("TestTopic", "key", "yudaoyuanma");
+//
+//        // 同步发送消息
+//        Future<RecordMetadata> sendResultFuture = producer.send(message);
+//        RecordMetadata result = sendResultFuture.get();
+//        System.out.println("message sent to " + result.topic() + ", partition " + result.partition() + ", offset " + result.offset());
+        ysTest(producer);
+    }
 
-        // 同步发送消息
-        Future<RecordMetadata> sendResultFuture = producer.send(message);
-        RecordMetadata result = sendResultFuture.get();
+
+    public static void ysTest(Producer<String,String> producer) throws ExecutionException, InterruptedException {
+        ProducerRecord<String, String> sendMessage = new ProducerRecord<>("YsTestTopic","name", "ys");
+        Future<RecordMetadata> future = producer.send(sendMessage);
+        RecordMetadata result = future.get();
         System.out.println("message sent to " + result.topic() + ", partition " + result.partition() + ", offset " + result.offset());
     }
 

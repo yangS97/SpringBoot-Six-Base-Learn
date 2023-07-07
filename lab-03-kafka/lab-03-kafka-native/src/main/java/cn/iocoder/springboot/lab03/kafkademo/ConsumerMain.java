@@ -33,12 +33,13 @@ public class ConsumerMain {
         Consumer<String, String> consumer = createConsumer();
 
         // 订阅消息
-        consumer.subscribe(Collections.singleton("TestTopic"));
+//        consumer.subscribe(Collections.singleton("TestTopic"));
+        consumer.subscribe(Collections.singleton("YsTestTopic"));
 
         // 拉取消息
         while (true) {
             // 拉取消息。如果拉取不到消息，阻塞等待最多 10 秒，或者等待拉取到消息。
-            ConsumerRecords records = consumer.poll(Duration.ofSeconds(10));
+            ConsumerRecords records = consumer.poll(Duration.ofSeconds(3));
             // 遍历处理消息
             records.forEach(new java.util.function.Consumer<ConsumerRecord>() {
 

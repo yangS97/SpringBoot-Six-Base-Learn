@@ -8,7 +8,7 @@ public class YunaiServerProperties {
     /**
      * 默认端口
      */
-    private static final Integer DEFAULT_PORT = 8000;
+    private static final Integer DEFAULT_PORT = 18000;
 
     /**
      * 端口
