@@ -1,2 +1,2 @@
 netty:
-  port: 8888 # Netty Server 端口
+  port: 18888 # Netty Server 端口

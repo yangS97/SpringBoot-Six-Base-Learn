@@ -8,10 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.concurrent.FailureCallback;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
-import org.springframework.util.concurrent.SuccessCallback;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -56,8 +54,8 @@ public class DemoServiceTest {
         Future<Integer> execute01Result = demoService.execute01AsyncWithFuture();
         Future<Integer> execute02Result = demoService.execute02AsyncWithFuture();
         // 阻塞等待结果
-        execute01Result.get();
-        execute02Result.get();
+        System.out.println("execute01Result.get() = " + execute01Result.get());
+        System.out.println("execute02Result.get() = " + execute02Result.get());
 
         logger.info("[task03][结束执行，消耗时长 {} 毫秒]", System.currentTimeMillis() - now);
     }
@@ -70,21 +68,10 @@ public class DemoServiceTest {
         // 执行任务
         ListenableFuture<Integer> execute01Result = demoService.execute01AsyncWithListenableFuture();
         logger.info("[task04][execute01Result 的类型是：({})]",execute01Result.getClass().getSimpleName());
-        execute01Result.addCallback(new SuccessCallback<Integer>() { // 增加成功的回调
-
-            @Override
-            public void onSuccess(Integer result) {
-                logger.info("[onSuccess][result: {}]", result);
-            }
-
-        }, new FailureCallback() { // 增加失败的回调
-
-            @Override
-            public void onFailure(Throwable ex) {
-                logger.info("[onFailure][发生异常]", ex);
-            }
-
-        });
+        // 增加成功的回调
+        // 增加失败的回调
+        execute01Result.addCallback(result -> logger.info("[onSuccess][result: {}]", result),
+                                    ex -> logger.info("[onFailure][发生异常]", ex));
         execute01Result.addCallback(new ListenableFutureCallback<Integer>() { // 增加成功和失败的统一回调
 
             @Override

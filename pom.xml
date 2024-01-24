@@ -13,7 +13,7 @@
         <!-- Spring Boot 示例 -->
 <!--        <module>lab-01-spring-security</module>-->
 <!--        <module>lab-02-spring-security-oauth</module>-->
-<!--        <module>lab-03-kafka</module>-->
+        <module>lab-03-kafka</module>
 <!--        <module>lab-04-rabbitmq</module>-->
 <!--        <module>lab-05-benchmark-tomcat-jetty-undertow</module>-->
 <!--        <module>lab-06</module>-->
@@ -74,7 +74,7 @@
 <!--        <module>lab-64</module>-->
 <!--        <module>lab-65</module>-->
 <!--        <module>lab-66</module>-->
-        <module>lab-67</module>
+<!--        <module>lab-67</module>-->
 <!--        <module>lab-68-spring-security-oauth</module>-->
 <!--        <module>lab-69-proxy</module>-->
 <!--        <module>lab-70-db-doc</module>-->
@@ -96,7 +96,7 @@
 <!--        <module>labx-13</module>-->
 <!--        <module>labx-14</module>-->
 <!--        <module>labx-15</module>-->
-<!--        <module>labx-16</module>-->
+        <module>labx-16</module>
 <!--        <module>labx-17</module>-->
 <!--        <module>labx-18</module>-->
 <!--        <module>labx-19</module>-->

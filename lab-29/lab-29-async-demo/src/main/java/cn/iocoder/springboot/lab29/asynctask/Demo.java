@@ -10,14 +10,7 @@ public class Demo {
         ExecutorService executor = Executors.newFixedThreadPool(10);
 
         // 提交任务到线程池中执行。
-        executor.submit(new Runnable() {
-
-            @Override
-            public void run() {
-                System.out.println("听说我被异步调用了");
-            }
-
-        });
+        executor.submit(() -> System.out.println("hello, world"));
     }
 
 }
