@@ -18,7 +18,7 @@ public class Demo01Producer {
         // 创建 Demo01Message 消息
         Demo01Message message = new Demo01Message();
         message.setId(id);
-        // 同步发送消息
+        // 同步发送消息  参数带交换机和路由
         rabbitTemplate.convertAndSend(Demo01Message.EXCHANGE, Demo01Message.ROUTING_KEY, message);
     }
 
@@ -26,7 +26,7 @@ public class Demo01Producer {
         // 创建 Demo01Message 消息
         Demo01Message message = new Demo01Message();
         message.setId(id);
-        // 同步发送消息
+        // 同步发送消息 参数带路由     默认交换器，隐式地绑定到每个队列，路由键等于队列名称。
         rabbitTemplate.convertAndSend(Demo01Message.QUEUE, message);
     }
 
