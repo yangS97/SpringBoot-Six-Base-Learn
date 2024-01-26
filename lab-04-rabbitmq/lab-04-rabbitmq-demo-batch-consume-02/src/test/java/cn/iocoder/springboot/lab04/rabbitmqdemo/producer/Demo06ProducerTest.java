@@ -32,6 +32,16 @@ public class Demo06ProducerTest {
         this.testSyncSend(10);
     }
 
+
+    @Test
+    public void testSyncSen03() throws InterruptedException {
+        // 发送 10 条消息
+        // 只会发送一次
+        this.testSyncSend(19);
+    }
+
+
+
     private void testSyncSend(int n) throws InterruptedException {
         for (int i = 0; i < n; i++) {
             // 同步发送消息
