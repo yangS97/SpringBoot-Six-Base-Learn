@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 //@RabbitListener(queues = Demo09Message.QUEUE)
 @RabbitListener(queues = Demo09Message.QUEUE,
-    concurrency = "2")
+    concurrency = "3")  //控制并发度
 //@RabbitListener(queues = {"QUEUE_DEMO_01", "QUEUE_DEMO_02"})
 public class Demo09Consumer {
 
