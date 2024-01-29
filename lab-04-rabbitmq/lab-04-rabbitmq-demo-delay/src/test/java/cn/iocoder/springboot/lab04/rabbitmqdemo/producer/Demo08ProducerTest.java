@@ -32,6 +32,15 @@ public class Demo08ProducerTest {
         this.testSyncSendDelay(5000);
     }
 
+
+    @Test
+    public void testSyncSendDelay() throws InterruptedException {
+        // 设置发送消息的过期时间为 11s
+        this.testSyncSendDelay(11000);
+    }
+
+
+
     private void testSyncSendDelay(Integer delay) throws InterruptedException {
         int id = (int) (System.currentTimeMillis() / 1000);
         producer.syncSend(id, delay);
