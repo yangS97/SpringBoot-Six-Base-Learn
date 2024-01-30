@@ -5,5 +5,5 @@ spring:
     port: 5672
     username: rabbitmqadmin
     virtual-host: /
-    publisher-confirm-type: correlated # 设置 Confirm 类型为 CORRELATED 。
+    publisher-confirm-type: correlated # 设置 Confirm 类型为 CORRELATED --> 异步生产者消息确认模式
     publisher-returns: true #

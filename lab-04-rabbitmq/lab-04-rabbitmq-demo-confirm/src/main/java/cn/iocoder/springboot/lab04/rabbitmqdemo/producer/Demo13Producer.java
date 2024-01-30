@@ -23,17 +23,18 @@ public class Demo13Producer {
         // 创建 Demo13Message 消息
         Demo13Message message = new Demo13Message();
         message.setId(id);
-        // 同步发送消息
+        // 同步发送消息  invoke方法接收三个参数，第一个参数是一个回调接口(可以自定义操作)，第二个参数是发送成功的RabbitMQ Broker的回调，
+        // 第三个参数是发送失败的rabbitmq的broker的回调。
         rabbitTemplate.invoke(new RabbitOperations.OperationsCallback<Object>() {
 
             @Override
             public Object doInRabbit(RabbitOperations operations) {
                 // 同步发送消息
                 operations.convertAndSend(Demo13Message.EXCHANGE, Demo13Message.ROUTING_KEY, message);
-                logger.info("[doInRabbit][发送消息完成]");
+                logger.info("[doInRabbit][发送消息完成]=================");
                 // 等待确认
                 operations.waitForConfirms(0); // timeout 参数，如果传递 0 ，表示无限等待
-                logger.info("[doInRabbit][等待 Confirm 完成]");
+                logger.info("[doInRabbit][等待 Confirm 完成]==============");
                 return null;
             }
 
@@ -41,7 +42,7 @@ public class Demo13Producer {
 
             @Override
             public void handle(long deliveryTag, boolean multiple) throws IOException {
-                logger.info("[handle][Confirm 成功]");
+                logger.info("[handle][Confirm 成功]===================");
             }
 
         }, new ConfirmCallback() {

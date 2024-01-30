@@ -25,7 +25,8 @@ public class Demo11Producer {
         rabbitTemplate.convertAndSend(Demo11Message.EXCHANGE, Demo11Message.ROUTING_KEY, message);
         logger.info("[syncSend][发送编号：[{}] 发送成功]", id);
 
-        // 等待
+        // 等待10s   如果同步发送消息成功后，Consumer 立即消费到该消息，说明未生效。
+        // 如果 Consumer是10秒之后，才消费到该消息，说明已生效
         Thread.sleep(10 * 1000L);
     }
 

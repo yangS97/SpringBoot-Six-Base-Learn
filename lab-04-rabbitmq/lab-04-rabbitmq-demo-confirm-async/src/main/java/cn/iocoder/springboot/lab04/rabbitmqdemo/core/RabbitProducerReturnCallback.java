@@ -15,6 +15,14 @@ public class RabbitProducerReturnCallback implements RabbitTemplate.ReturnCallba
         rabbitTemplate.setReturnCallback(this);
     }
 
+    /**
+     * 故意设置路由键为error ，达到消息无法匹配到 Queue 的效果, 从而触发 ReturnCallback
+     * @param message the returned message.
+     * @param replyCode the reply code.
+     * @param replyText the reply text.
+     * @param exchange the exchange.
+     * @param routingKey the routing key.
+     */
     @Override
     public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
         logger.error("[returnedMessage][message: [{}] replyCode: [{}] replyText: [{}] exchange: [{}] routingKey: [{}]]",

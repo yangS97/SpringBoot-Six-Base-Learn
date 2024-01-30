@@ -6,6 +6,9 @@ import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * rabbitmq的生产者异步确认回调
+ */
 @Component
 public class RabbitProducerConfirmCallback implements RabbitTemplate.ConfirmCallback {
 

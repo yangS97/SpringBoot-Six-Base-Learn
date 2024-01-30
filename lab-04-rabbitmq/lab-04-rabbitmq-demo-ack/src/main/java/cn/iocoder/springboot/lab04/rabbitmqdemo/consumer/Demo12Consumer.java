@@ -28,6 +28,10 @@ public class Demo12Consumer {
             // 第二个参数 multiple ，用于批量确认消息，为了减少网络流量，手动确认可以被批处。
             // 1. 当 multiple 为 true 时，则可以一次性确认 deliveryTag 小于等于传入值的所有消息
             // 2. 当 multiple 为 false 时，则只确认当前 deliveryTag 对应的消息
+
+
+            //在消费逻辑中，我们故意只提交消费的消息的 Demo12Message.id 为奇数的消息。😈
+            // 这样，我们只需要发送一条 id=1 ，一条 id=2 的消息，如果第二条的消费进度没有被提交，就可以说明手动提交消费进度成功。
             channel.basicAck(deliveryTag, false);
         }
     }

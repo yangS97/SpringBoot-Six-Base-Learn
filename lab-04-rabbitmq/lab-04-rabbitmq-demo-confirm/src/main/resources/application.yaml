@@ -5,4 +5,4 @@ spring:
     port: 5672
     username: rabbitmqadmin
     virtual-host: /
-    publisher-confirm-type: simple # 设置 Confirm 类型为 SIMPLE 。
+    publisher-confirm-type: simple # 设置 Confirm 类型为 SIMPLE 。  同步的Confirm模式, 会同步阻塞,等待rabbitmq的broker的确认消息的响应
