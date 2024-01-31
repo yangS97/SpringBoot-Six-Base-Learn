@@ -15,7 +15,7 @@ public class ConsumerMain {
     private static Consumer<String, String> createConsumer() {
         // 设置 Producer 的属性
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "127.0.0.1:9092"); // 设置 Broker 的地址
+        properties.put("bootstrap.servers", "192.168.5.31:9092"); // 设置 Broker 的地址
         properties.put("group.id", "demo-consumer-group"); // 消费者分组
         properties.put("auto.offset.reset", "earliest"); // 设置消费者分组最初的消费进度为 earliest 。可参考博客 https://blog.csdn.net/lishuangzhe7047/article/details/74530417 理解
         properties.put("enable.auto.commit", true); // 是否自动提交消费进度

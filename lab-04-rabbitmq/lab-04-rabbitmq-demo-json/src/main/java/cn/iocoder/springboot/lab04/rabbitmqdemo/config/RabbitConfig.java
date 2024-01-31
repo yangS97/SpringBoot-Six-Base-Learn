@@ -46,6 +46,14 @@ public class RabbitConfig {
 
     }
 
+    /**
+     * 引入jackson-databind包，使用的消息转化器, 后续在创建 RabbitTemplate Bean 时，会自动注入它
+     *
+     * public void setMessageConverter(MessageConverter messageConverter) {
+     * 		this.messageConverter = messageConverter;
+     * 	    }
+     * @return
+     */
     @Bean
     public MessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();

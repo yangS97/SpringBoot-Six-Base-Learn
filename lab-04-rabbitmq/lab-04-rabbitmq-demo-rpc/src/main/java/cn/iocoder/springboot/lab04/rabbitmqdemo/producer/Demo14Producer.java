@@ -20,7 +20,7 @@ public class Demo14Producer {
         message.setId(id);
         // 创建 CorrelationData 对象
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        // 同步发送消息，并接收结果
+        // 同步发送消息，并接收结果  convertSendAndReceive()
         return (String) rabbitTemplate.convertSendAndReceive(Demo14Message.EXCHANGE, Demo14Message.ROUTING_KEY, message,
                 correlationData);
     }

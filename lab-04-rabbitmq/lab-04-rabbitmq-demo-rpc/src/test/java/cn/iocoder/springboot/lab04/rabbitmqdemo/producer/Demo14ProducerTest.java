@@ -20,6 +20,10 @@ public class Demo14ProducerTest {
     @Autowired
     private Demo14Producer producer;
 
+    /**
+     * 😈 通过 RabbitMQ 来实现 RPC 的功能，看起来是比较酷炫的。不过暂时没有想到实际的使用场景
+     * @throws InterruptedException
+     */
     @Test
     public void testSyncSend() throws InterruptedException {
         int id = (int) (System.currentTimeMillis() / 1000);
