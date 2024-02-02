@@ -18,9 +18,9 @@ public class Demo14Producer {
         // 创建 Demo01Message 消息
         Demo14Message message = new Demo14Message();
         message.setId(id);
-        // 创建 CorrelationData 对象
+        // 创建 CorrelationData 对象  --> 这是reply回复对象, 用于消息的确认, 里面设置了一个UUID, 用于标识回复消息的唯一性
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        // 同步发送消息，并接收结果  convertSendAndReceive()
+        // 同步发送消息，并接收结果  convertSendAndReceive(), 设置了消息的回复对象(correlationData), 用于消息的确认
         return (String) rabbitTemplate.convertSendAndReceive(Demo14Message.EXCHANGE, Demo14Message.ROUTING_KEY, message,
                 correlationData);
     }
