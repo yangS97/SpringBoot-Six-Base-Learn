@@ -8,8 +8,8 @@ spring:
       retries: 3 # 发送失败时，重试发送的次数
       key-serializer: org.apache.kafka.common.serialization.StringSerializer # 消息的 key 的序列化
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # 消息的 value 的序列化
-      batch-size: 16384 # 每次批量发送消息的最大数量
-      buffer-memory: 33554432 # 每次批量发送消息的最大内存
+      batch-size: 16384 # 每次批量发送消息的最大数量,单位是字节,默认是 16KB, 一个字节是 8 位, 16KB = 16 * 1024 * 8 bit
+      buffer-memory: 33554432 # 每次批量发送消息的最大内存,单位是字节,默认是 32MB, 一个字节是 8 位 , 32MB = 32 * 1024 * 1024 * 8 bit
       properties:
         linger:
           ms: 30000 # 批处理延迟时间上限。这里配置为 30 * 1000 ms 过后，不管是否消息数量是否到达 batch-size 或者消息大小到达 buffer-memory 后，都直接发送一次请求。
