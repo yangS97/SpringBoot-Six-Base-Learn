@@ -23,6 +23,14 @@ public class Demo01ProducerTest {
     @Autowired
     private Demo01Producer producer;
 
+    /**
+     * SendResult 是发送结果的封装类，包含了ProducerRecord 和 RecordMetadata 两个对象。
+     * ProducerRecord 是发送的消息对象，RecordMetadata 是发送成功后的元数据信息。
+     * ProducerRecord 包含了 topic、key、value 等信息。
+     * RecordMetadata 包含了 topic、partition、offset、timestamp 等信息。
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @Test
     public void testSyncSend() throws ExecutionException, InterruptedException {
         int id = (int) (System.currentTimeMillis() / 1000);

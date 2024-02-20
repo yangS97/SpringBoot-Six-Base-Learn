@@ -9,6 +9,11 @@ import org.springframework.util.concurrent.ListenableFuture;
 import javax.annotation.Resource;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * 封装了两个发送消息的方法: syncSend() 和 asyncSend(), 分别用于同步发送消息和异步发送消息。
+ * 同步方法的实现逻辑: 创建 Demo01Message 消息，然后调用 kafkaTemplate.send() 方法发送消息，最后调用 get() 方法等待发送结果。
+ * 异步方法的实现逻辑: 创建 Demo01Message 消息，然后调用 kafkaTemplate.send() 方法发送消息，返回 ListenableFuture 对象。
+ */
 @Component
 public class Demo01Producer {
 
